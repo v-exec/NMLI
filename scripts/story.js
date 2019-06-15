@@ -103,6 +103,23 @@ function story(event) {
 			document.getElementById('thirdFileIcon').style.display = 'inline-block';
 			acquiredItems[2] = true;
 			break;
+
+		case 5:
+			var text =
+			`
+			No way... (●♡o♡)
+			<br>
+			<br>
+			You cracked the code! Uh... But what does it mean?
+			<br>
+			<br>
+			Maybe there's some connection to the papers I dropped off this morning. You might wanna screenshot that cypher if you'll be doing any MANUAL DECRYPTION ٩(•̤̀ᵕ•̤́๑)૭✧ I always find that easier to manage
+			<br>
+			<br>
+			I'm getting sleepy to care (๑ᵕ⌓ᵕ̤) signing off for the night, take it easy ` + user + ` ヾ(・ω・ｏ)
+			`
+			createMail('what could it mean?...', 'Decryptor_Markus_Flint', 'Decryptor_' + user, text, null);
+			break;
 	}
 }
 
@@ -144,6 +161,7 @@ function displayResult(level, first) {
 			`
 			print = true;
 			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
+			if (first) story(5);
 			break;
 	}
 }
