@@ -49,6 +49,7 @@ var bodyIsOpen = false;
 var decryptorWindow = document.getElementById('decryptorWindow');
 var decryptorArea = document.getElementById('decryptorArea');
 var decryptorResults = document.getElementById('decryptorResults');
+var decryptorResultsText = document.getElementById('decryptorResultsText');
 var decryptorFeedback = document.getElementById('decryptorFeedback');
 var decryptingOngoing = false;
 var decryptorIsOpen = false;
@@ -119,7 +120,7 @@ function deactivateLoading() {
 function typeDisplay(target, message, index, interval) {
 	if (print) {
 		if (index < message.length) {
-			document.getElementById(target).append(message[index++]); 
+			target.append(message[index++]); 
 			setTimeout(function () {
 				typeDisplay(target, message, index, interval);
 			}, interval);

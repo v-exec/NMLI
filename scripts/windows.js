@@ -63,7 +63,7 @@ function openWindow(w) {
 function toggleDecryptor() {
 	decryptorIsOpen = !decryptorIsOpen;
 
-	decryptorResults.innerHTML = '';
+	decryptorResultsText.innerHTML = '';
 	decryptorFeedback.innerHTML = '';
 
 	if (decryptorIsOpen) {

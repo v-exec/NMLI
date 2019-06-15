@@ -437,6 +437,7 @@ a {
 	padding: 40px;
 	background-color: #fff;
 	font-family: 'Roboto Mono' !important;
+	overflow-y: auto;
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
@@ -459,11 +460,18 @@ a {
 
 #decryptorResults {
 	display: none;
+	width: 100%;
+	height: auto;
+	color: #000;
+}
+
+#decryptorResults span {
+	display: inline-block;
+	width: 100%;
+	height: auto;
 	font-size: 12px;
 	line-height: 20px;
-	color: #000;
 	margin-bottom: 120px;
-	overflow-y: auto;
 }
 
 #decryptorFeedback {

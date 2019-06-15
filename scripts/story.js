@@ -110,7 +110,7 @@ function story(event) {
 function displayResult(level, first) {
 	decryptorArea.style.display = 'none';
 	deactivateLoading();
-	decryptorResults.innerHTML = '';
+	decryptorResultsText.innerHTML = '';
 	decryptorResults.style.display = 'block';
 
 	//display result relevant to completed level
@@ -122,7 +122,7 @@ function displayResult(level, first) {
 			`
 			//print keeps text from printing letter by letter when it's not visible
 			print = true;
-			typeDisplay('decryptorResults', text, 0, 10);
+			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
 			//only run the story event once, so it does not create additional unwanted mail messages
 			if (first) story(1);
 			break;
@@ -133,7 +133,7 @@ function displayResult(level, first) {
 			Second puzzle solved.
 			`
 			print = true;
-			typeDisplay('decryptorResults', text, 0, 10);
+			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
 			if (first) story(3);
 			break;
 
@@ -143,7 +143,7 @@ function displayResult(level, first) {
 			Cypher: 3 = f; e = d; ...
 			`
 			print = true;
-			typeDisplay('decryptorResults', text, 0, 10);
+			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
 			break;
 	}
 }
