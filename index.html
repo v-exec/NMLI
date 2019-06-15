@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="english">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>NMLI - Remote Decryptor</title>
+		<link rel='icon' href="assets/content/logo.ico" type='image/x-icon'>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Roboto+Mono">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+		<link rel="stylesheet" href="assets/style/style.css">
+	</head>
+	<body>
+		<div id="loginContainer">
+			<span id="loginName">NMLI - Staff Login</span>
+				<input class="field" id="username" maxlength="20" placeholder="username" autocomplete="off" onkeypress="login(event)" onclick="handleFormClick(event)"></input>
+				<input class="field" id="password" maxlength="20" placeholder="password" autocomplete="off" type="password" onkeypress="login(event)" onclick="handleFormClick(event)"></input>
+			<span id="loginFeedback"></span>
+		</div>
+		<!--menu-->
+		<div id="menuBar">
+			<img src="assets/content/logo.svg" id="menuIcon"></img>
+			<a id="back" href="#" onclick="goBack()"><span>X</span></a>
+		</div>
+		<div id="desktop">
+			<!--icons-->
+			<a href="#" class="icon" id="musicIcon" onclick="openWindow('music')">
+				<img src="assets/content/musicIcon.svg"></img>
+				<span>Music</span>
+			</a><a href="#" class="icon" id="mailIcon" onclick="openWindow('mail')">
+				<img src="assets/content/mailIcon.svg"></img>
+				<span>Mail</span>
+			</a><a href="#" class="icon" id="decryptorIcon" onclick="openWindow('decryptor')">
+				<img src="assets/content/decryptorIcon.svg"></img>
+				<span>Decryptor</span>
+			</a><a href="#" class="icon" id="firstCrackIcon">
+				<img src="assets/content/keyIcon.svg"></img>
+				<span>85938_2_crack.crypt</span>
+			</a><a href="#" class="icon" id="firstFileIcon">
+				<img src="assets/content/blackboxIcon.svg"></img>
+				<span>85938_2.vf</span>
+			</a><a href="#" class="icon" id="secondCrackIcon">
+				<img src="assets/content/keyIcon.svg"></img>
+				<span>blackbox_crack.crypt</span>
+			</a><a href="#" class="icon" id="secondFileIcon">
+				<img src="assets/content/blackboxIcon.svg"></img>
+				<span>blackbox.vf</span>
+			</a><a href="#" class="icon" id="thirdCrackIcon">
+				<img src="assets/content/keyIcon.svg"></img>
+				<span>bonus.crypt</span>
+			</a><a href="#" class="icon" id="thirdFileIcon">
+				<img src="assets/content/blackboxIcon.svg"></img>
+				<span>bonus_assignment.vf</span>
+			</a>
+		</div>
+		<!--mail-->
+		<div id="mailMessages"></div>
+		<div id="mailBody">
+			<span id="bodyTitle"><!--X--></span>
+			<span id="bodySender"><!--X--></span>
+			<span id="bodyReceiver"><!--X--></span>
+			<span id="bodyTime"><!--X--></span>
+			<span id="bodyBody"><!--X--></span>
+		</div>
+		<!--decryptor-->
+		<div id="decryptorWindow">
+			<div id="decryptorArea"></div>
+			<span id="decryptorResults"><!--X--></span>
+			<span id="decryptorFeedback"><!--X--></span>
+		</div>
+		<!--music-->
+		<div id="musicWindow">
+			<div id="songCover">
+				<div id="cdCircle"></div>
+			</div>
+			<div id="musicTextContainer">
+				<span id="musicText">Rival Consoles - Recovery</span>
+			</div>
+		</div>
+		<!--menu-->
+		<div id="detailBar">
+			<span id="detailText"><!--X--></span>
+		</div>
+		<!--feedback-->
+		<div id="loadingBox">
+			<img src="assets/content/loading.gif" id="loadingWheel"></img>
+			<span id="loadingFeedback"></span>
+		</div>
+		<span id="loginText"><!--X--></span>
+		<script src="scripts/init.js"></script>
+		<script src="scripts/login.js"></script>
+		<script src="scripts/mail.js"></script>
+		<script src="scripts/decryptor.js"></script>
+		<script src="scripts/story.js"></script>
+		<script src="scripts/windows.js"></script>
+	</body>
+</html>
