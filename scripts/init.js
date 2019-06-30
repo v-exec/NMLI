@@ -7,7 +7,7 @@ var menuIcon = document.getElementById('menuIcon');
 var menuBar = document.getElementById('menuBar');
 
 var user;
-var pass = 'pass';
+var pass = 'goodnight';
 
 //loading
 var loadingBox = document.getElementById('loadingBox');
@@ -50,6 +50,7 @@ var decryptorWindow = document.getElementById('decryptorWindow');
 var decryptorArea = document.getElementById('decryptorArea');
 var decryptorResults = document.getElementById('decryptorResults');
 var decryptorResultsText = document.getElementById('decryptorResultsText');
+var decryptions = [];
 var decryptorFeedback = document.getElementById('decryptorFeedback');
 var decryptingOngoing = false;
 var decryptorIsOpen = false;

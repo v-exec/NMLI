@@ -25,7 +25,7 @@ function story(event) {
 			I've been having trouble wrapping my head around the 1s and 0s ˚‧·(˚ ˃̣̣̥⌓˂̣̣̥ )‧·˚
 			<br>
 			<br>
-			BUT, check this, I talked to one of the IT guys, and he explained how it's quite simple!
+			BUT, check this, I talked to one of the IT guys, and he said it's quite simple!
 			<br>
 			Basically, you need to make all the numbers either 0 or 1. Each little case is randomly flipping between 1 and 0, and each time you 
 			click on a number, it freezes it AND its neighbors (๑•̀u•́)و ✧
@@ -116,7 +116,7 @@ function story(event) {
 			Maybe there's some connection to the papers I dropped off this morning. You might wanna screenshot that cypher if you'll be doing any MANUAL DECRYPTION ٩(•̤̀ᵕ•̤́๑)૭✧ I always find that easier to manage
 			<br>
 			<br>
-			I'm getting sleepy to care (๑ᵕ⌓ᵕ̤) signing off for the night, take it easy ` + user + ` ヾ(・ω・ｏ)
+			Anways, I'm getting too sleepy to care (๑ᵕ⌓ᵕ̤) signing off for the night, take it easy ` + user + ` ヾ(・ω・ｏ)
 			`
 			createMail('what could it mean?...', 'Decryptor_Markus_Flint', 'Decryptor_' + user, text, null);
 			break;
@@ -133,11 +133,8 @@ function displayResult(level, first) {
 	//display result relevant to completed level
 	switch (level) {
 		case 0:
-			var text =
-			`
-			This place was made my home after a heavy storm. The sight was dreadful! Flipped over benches and picnic tables, soil everywhere, and even a house which had made a lovely acquaintance with a large tree branch. I used to live on the streets of London, and then I upgraded to the park. Not a terrible progression, as I enjoyed the calmer scenery and generally more pleasant allure to the area’s visitors. Besides, I could do my job even better here! You’d think far too few people visit in comparison to a bustling street, but what matters is not the quantity, but the quality. Everyone’s so busy on the streets, nobody even notices you. How am I supposed to help when I can’t even compete with all the attention-grabbing propaganda plastered everywhere?
-			`
-			//print keeps text from printing letter by letter when it's not visible
+			var text = decryptions[level];
+			//keeps text from printing letter by letter when it's not visible
 			print = true;
 			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
 			//only run the story event once, so it does not create additional unwanted mail messages
@@ -145,20 +142,14 @@ function displayResult(level, first) {
 			break;
 
 		case 1:
-			var text =
-			`
-			Second puzzle solved.
-			`
+			var text = decryptions[level];
 			print = true;
 			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
 			if (first) story(3);
 			break;
 
 		case 2:
-			var text =
-			`
-			Cypher: 3 = f; e = d; ...
-			`
+			var text = decryptions[level];
 			print = true;
 			typeDisplay(document.getElementById('decryptorResultsText'), text, 0, 10);
 			if (first) story(5);
@@ -212,7 +203,7 @@ function createFirstMailSets() {
 	Decryptor_` + user +`,
 	<br>
 	<br>
-	You have been assigned task <i>#85938_2</i>.
+	A case certificate for task <i>#85938_2</i> has been assigned to your profile.
 	<br>
 	<br>
 	The file and crack have been automatically transferred to your remote work environment. Simply open your decryptor program to decrypt them.
