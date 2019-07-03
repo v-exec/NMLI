@@ -7,7 +7,7 @@ var menuIcon = document.getElementById('menuIcon');
 var menuBar = document.getElementById('menuBar');
 
 var user;
-var pass = 'goodnight';
+var pass = 'x4Qzj8';
 
 //loading
 var loadingBox = document.getElementById('loadingBox');
