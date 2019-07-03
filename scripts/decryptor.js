@@ -52,7 +52,7 @@ function loadDecryptor() {
 				if (action) break;
 
 				//if nothing was found
-				if (i + 1 == solvedPuzzles.length && !action) {
+				if (i + 1 === solvedPuzzles.length && !action) {
 					back.style.transform = 'translateX(0)';
 					deactivateLoading();
 					decryptorFeedback.innerHTML = 'No relevant files found.';
@@ -99,19 +99,15 @@ function loadPuzzle(level) {
 
 	for (var i = 0; i < count; i++) {
 		//create a new scope so that ii can retain unique value through loop
-		try{throw i}
-		catch(ii) {
-			setTimeout(function() {
-				cells.push(new Cell(count, ii, level));
-				cells[ii].activate();
+		let ii = i;
+		cells.push(new Cell(count, ii, level));
+		cells[ii].activate();
 
-				//calculate neighbors only on last cycle, when all objects are generated
-				if (ii + 1 == count) {
-					for (var j = 0; j < cells.length; j++) {
-						cells[j].calculateNeighbors();
-					}
-				}
-			}, 10);
+		//calculate neighbors only on last cycle, when all objects are generated
+		if (ii + 1 === count) {
+			for (var j = 0; j < cells.length; j++) {
+				cells[j].calculateNeighbors();
+			}
 		}
 	}
 }
@@ -124,7 +120,8 @@ function Cell(num, id, level) {
 	this.value;
 	this.level = level;
 	this.randomizer;
-	if (randomRange(0, 2) == 1) this.value = true;		
+
+	if (randomRange(0, 2) === 1) this.value = true;		
 	else this.value = false;
 
 	//num's square root must be whole number to fill area, ex. 4, 9, 16, 25
@@ -139,12 +136,14 @@ function Cell(num, id, level) {
 	a.style.display = 'inline-block';
 	a.style.width = this.size + 'px';
 	a.style.height = this.size + 'px';
+
 	//add onclick event to control its blinking as well as its neighbors'
 	a.onclick = function() {
 		//find relevant object
 		var object;
+
 		for (var i = 0; i < cells.length; i++) {
-			if (cells[i].id == a.id.substring(4, 7)) object = cells[i];
+			if (cells[i].id.toString() === a.id.substring(4, 7)) object = cells[i];
 		}
 
 		//operate on object
@@ -174,13 +173,13 @@ function Cell(num, id, level) {
 		if ((this.id + 1) > Math.sqrt(this.num)) this.neighbors.push(cells[this.id - Math.sqrt(this.num)]);
 
 		//right
-		if (!((this.id + 1) % Math.sqrt(this.num) == 0)) this.neighbors.push(cells[this.id + 1]);
+		if (!((this.id + 1) % Math.sqrt(this.num) === 0)) this.neighbors.push(cells[this.id + 1]);
 
 		//down
 		if ((this.id + 1) <= Math.sqrt(this.num) * (Math.sqrt(this.num) - 1)) this.neighbors.push(cells[this.id + Math.sqrt(this.num)]);
 
 		//left
-		if (!(this.id % Math.sqrt(this.num) == 0)) this.neighbors.push(cells[this.id - 1]);
+		if (!(this.id % Math.sqrt(this.num) === 0)) this.neighbors.push(cells[this.id - 1]);
 	}
 
 	//switch value randomly
@@ -190,14 +189,12 @@ function Cell(num, id, level) {
 			getElement(this.id).style.backgroundColor = '#fff';
 			getElement(this.id).childNodes[0].style.color = '#ccc';
 
-			//need to redefine scope to keep 'this'
-			this.randomizer = setInterval(function(_this) {
-				return function() {
-					_this.value = !_this.value;
-					if (_this.value) getElement(_this.id).childNodes[0].innerHTML = '1';
-					else getElement(_this.id).childNodes[0].innerHTML = '0';
-				};
-			}(this), randomRange(700, 1200));
+			//need to bind 'this' to keep proper scope
+			this.randomizer = setInterval(function() {
+				this.value = !this.value;
+				if (this.value) getElement(this.id).childNodes[0].textContent = '1';
+				else getElement(this.id).childNodes[0].textContent = '0';
+			}.bind(this), randomRange(700, 1200));
 		}
 	}
 
@@ -249,6 +246,6 @@ function checkIfSolved(level) {
 function getElement(cellID) {
 	var children = decryptorArea.childNodes;
 	for (var i = 0; i < children.length; i++) {
-		if (children[i].id.substring(4, 7) == cellID) return children[i];
+		if (children[i].id.substring(4, 7).trim() === cellID.toString()) return children[i];
 	}
 }

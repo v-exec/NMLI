@@ -9,8 +9,11 @@ function login(e) {
 		loginFeedback.innerHTML = '';
 
 		//successful login?
-		if (inputPass == pass) successfulLogin();
-		else loginFeedback.innerHTML = 'incorrect password';
+		if (user == '' || user == null) loginFeedback.innerHTML = 'enter a username';
+		else {
+			if (inputPass == pass) successfulLogin();
+			else loginFeedback.innerHTML = 'incorrect password';
+		}
 	}
 }
 
